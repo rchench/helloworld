@@ -2,7 +2,31 @@ This is just a hello world collection of all.
 
 # Linux
 
-Install Ubuntu 20.04 from https://releases.ubuntu.com/20.04/ or https://multipass.run/ or https://hub.docker.com/_/ubuntu.
+Install Ubuntu 20.04 from https://releases.ubuntu.com/20.04/ or https://multipass.run/.
+
+```
+multipass launch -n <name> -m <ram> -c <vcpu> -d <disk>
+```
+
+# Docker
+
+https://docs.docker.com/engine/install/ubuntu/
+
+```
+docker run hello-world
+```
+
+any helloworld can be run using container like below:
+```
+# golang
+docker run --rm -v "$PWD":/go/src golang:alpine go run src/helloworld.go
+
+# java
+docker run --rm -v "$PWD":/usr/src/myapp -w /usr/src/myapp openjdk:11 javac HelloWorld.java
+docker run --rm -v "$PWD":/usr/src/myapp -w /usr/src/myapp openjdk:11 java HelloWorld
+```
+
+# Programming Language
 
 Use one in all Ubuntu environment to run all hello world.
 
@@ -29,8 +53,9 @@ sudo apt-get install -y nodejs
 node helloworld.js
 
 # java
-sudo apt install default-jre
-java helloworld.java
+sudo apt install default-jdk
+javac HelloWorld.java
+java HelloWorld
 
 # c
 sudo apt install build-essential
