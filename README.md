@@ -34,6 +34,6 @@ java helloworld.java
 
 # c
 sudo apt install build-essential
-gcc -o helloworld.c
+gcc -o helloworld helloworld.c
 ./helloworld
 ```
