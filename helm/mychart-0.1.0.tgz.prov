@@ -1,0 +1,30 @@
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA512
+
+apiVersion: v2
+appVersion: 1.16.0
+dependencies:
+- - name: mylibchart
+  repository: file://../mylibchart
+  version: 0.1.0
+description: A Helm chart for Kubernetes
+name: mychart
+type: application
+version: 0.1.0
+
+...
+files:
+  mychart-0.1.0.tgz: sha256:77e8c930ddeef3c283b38587ab99fc1df04ca0b5073831df194a3b9baa50fe5c
+-----BEGIN PGP SIGNATURE-----
+
+wsDcBAEBCgAQBQJgMWyBCRDYVybMGWh8oQAAqz0MAHkjFhGMXKFGFOSPDQlvZPNj
+WRg4Zq0n5DvFT1/28UUie+bsX8YLyoK1kaOF92a0YlBaNRZnk++XrEDmwquV8doU
+oEtFGgOTCvnMQhcQSe4YCxKrOdQe6pMeraitTSBOIipOMaMkcmIppNvSi4s+SS5E
+79e/+4mNPUyjzxI+zOl1YaU+E0PBbhIIPjIYUvwL94re/Qcap43DSBijS+oV4chI
+kgJiUPCZ41mw1TVkIX1E0fyDIWigViSIoqPY6CxOaM8G+2LAkXRAiGTkLktOAIGv
+VwUrzk4PQufh20LvRMV2deDSnqAHnQcMEW4+peypvy1/PoOz5ZXu8f9FmO9pbcHi
+uOppa/sf0pOwUxUZzFIp5giinNbAq70GNPzIspsB8ziqgCAIDCXUT0u+uhWex6S3
+0tuWHBhDuWX+tAgUxu5dReaD/1BkPDhi7XFk36xq7gJnMZsX10VKyz6vywoa0dqt
+t4VNCQ/wQlUQogEoF+qw/aiMqtawk3rS4tEem7QOaw==
+=snk2
+-----END PGP SIGNATURE-----

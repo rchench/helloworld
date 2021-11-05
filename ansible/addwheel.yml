@@ -1,0 +1,24 @@
+---
+- hosts: all
+  gather_facts: no
+  remote_user: ubuntu
+
+  tasks:
+
+  - name: Add Unix Admins users
+    user: name=ubuntu group=ubuntu groups=wheel
+
+  - name: Make sure we have a 'wheel' group
+    group:
+      name=wheel
+      state=present
+
+  - name: Allow wheel group to have passwordless sudo
+    lineinfile:
+      dest: /etc/sudoers
+      state: present
+      regexp: '^%wheel'
+      line: '%wheel ALL=(ALL) NOPASSWD: ALL'
+
+  - name: Add sudoers users to wheel group
+    user: name=ubuntu groups=wheel append=yes state=present createhome=yes

@@ -1,0 +1,24 @@
+---
+- hosts: all
+  gather_facts: no
+  remote_user: ubuntu
+
+  tasks:
+
+  - name: Add Unix Admins users
+    user: name=ubuntu group=ubuntu groups=sudo
+
+  - name: Make sure we have a 'sudo' group
+    group:
+      name=sudo
+      state=present
+
+  - name: Allow sudo group to have passwordless sudo
+    lineinfile:
+      dest: /etc/sudoers
+      state: present
+      regexp: '^%sudo'
+      line: '%sudo ALL=(ALL) NOPASSWD: ALL'
+
+  - name: Add sudoers users to sudo group
+    user: name=ubuntu groups=sudo append=yes state=present createhome=yes

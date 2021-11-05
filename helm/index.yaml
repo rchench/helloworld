@@ -1,0 +1,18 @@
+apiVersion: v1
+entries:
+  mychart:
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2021-06-16T11:41:38.244947-07:00"
+    dependencies:
+    - name: mylibchart
+      repository: file://../mylibchart
+      version: 0.1.0
+    description: A Helm chart for Kubernetes
+    digest: f41f7ec39a4ba510e5124c7d3911d07d5b4f8e652fc81eeab5eee9923e6f8fa7
+    name: mychart
+    type: application
+    urls:
+    - mychart-0.1.0.tgz
+    version: 0.1.0
+generated: "2021-06-16T11:41:38.243745-07:00"

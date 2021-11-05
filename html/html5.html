@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+        function init() {
+            var h1tags = document.getElementsByTagName("h1");
+            h1tags[1].onclick = react;
+        }
+        function react() {
+            this.innerHTML = "Clicked!";
+            this.style.color = "red";
+        }
+        onload = init;
+    </script>
+</head>
+<body>
+<h1>Static</h1>
+<h1>Dynamic</h1>
+<p><strong>use strong instead of b</strong></p>
+<p><em>use em intead of i</em></p>
+<p><del>this is del (have been removed)</del></p>
+<p><ins> this is ins (have been added)</ins></p>
+<p><s>this is s (being superseded by more accurate or relevent ...)</s></p>
+<p><u>this is u (being different in some way to normal text content)</u></p>
+<p><mark>this is mark</mark></p>
+<p>this is a<wbr>wbr</p>
+        
+<p>
+    square of four: 4&sup2; = 16 (don't use this)<br>
+    square of four: 4<sup>2</sup> = 16 (use this)<br>
+    Water: H<sub>2</sub>O
+</p>
+
+<p>this is an input valute to <var>degF</var> then performans a conversion. input of <samp>98.6</samp> will out put <samp>37C</samp>.</p>
+<pre>
+# include &lt;iostream&gt;
+using namespace std;
+
+int main() {
+    float degF, degC;
+}
+</pre>
+
+<pre>
+<code>
+# include &lt;iostream&gt;
+using namespace std;
+    
+int main() {
+    float degF, degC;
+}
+</code>    
+</pre>
+
+<data value="978-1">C++ Programming</data>
+<time datetime="2016-12-15">(Dec 15th, 2016)</time>
+
+</body>
+</html>

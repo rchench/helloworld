@@ -1,0 +1,8 @@
+Ricks-MacBook:docker eacehij$ docker swarm init
+Swarm initialized: current node (pd8h6qag2xcr3y4t61z0a9sj1) is now a manager.
+
+To add a worker to this swarm, run the following command:
+
+    docker swarm join --token SWMTKN-1-1jw0x00lixjaiepqzvht3ldrzdmwu18gorgsz3wzfe0uafbp91-5sehwedkh0shk9c5v5zh574a1 192.168.65.2:2377
+
+To add a manager to this swarm, run 'docker swarm join-token manager' and follow the instructions.

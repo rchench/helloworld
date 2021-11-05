@@ -1,0 +1,17 @@
+---
+- name: Update user password
+  hosts: all
+  gather_facts: no
+  remote_user: ubuntu
+
+  vars:
+    # https://v-punk.com/automate-password-changes-with-ansible/
+    # https://stackoverflow.com/questions/19292899/creating-a-new-user-and-password-with-ansible
+    # sudo pip install passlib
+    # python -c "from passlib.hash import sha512_crypt; import getpass; print sha512_crypt.encrypt(getpass.getpass())"
+    user_name: ubuntu
+    user_pass: $6$rounds=656000$vlYlu0pHi6AXv/LZ$MB2ho4tMHbVPTUSXzSR4uF90X.m/ORJGD4qDNDj0K4mp42xi2CVUj5.AtED8Ec9UL7fYtRoq0K36Iol2ti.KM0
+
+  tasks:
+    - name: updating password
+      user: name={{ user_name }} update_password=always password={{ user_pass }}
