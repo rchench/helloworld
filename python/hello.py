@@ -53,6 +53,19 @@ print(s.strip())
 print(s.lstrip())
 print(s.rstrip())
 
+print('-------------Num-----------------')
+print(10_000)     # 10000=10_000=100_00
+print(2**4)       # **乘方
+
+# 常量用大写，但实际上也是变量
+MAX=10
+print(MAX)
+MAX=100
+print(MAX)
+
+a,b,c=1,2,3
+print(f'{a} {b} {c}')
+
 print('--------------Lists----------------')
 bycycles = ['trek', 'cannondale', 'redline', 'specialized']
 print(bycycles)
