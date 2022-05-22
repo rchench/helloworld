@@ -8,3 +8,7 @@ https://www.liaoxuefeng.com/wiki/1016959663602400
 https://www.youtube.com/watch?v=yMOU8_hhLL8
 
 https://www.youtube.com/watch?v=kqtD5dpn9C8
+
+```
+python -c ''
+python -i ''
