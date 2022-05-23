@@ -13,6 +13,7 @@
 第六注释
 """
 
+print('-------------Hello-----------------')
 print('Hello, World!')
 
 s = 'Hello, World!'
@@ -22,7 +23,7 @@ print(s)
 import sys; sys.stdout.write(s + '\n')
 
 # 不换行输出
-print( s, end=' ' )
+print(s, end=' ')
 sys.stdout.write(s)
 print()
 
@@ -34,25 +35,60 @@ print()
 print('hello\nrunoob')      # 使用反斜杠(\)+n转义特殊字符
 print(r'hello\nrunoob')     # 在字符串前面添加一个 r，表示原始字符串，不会发生转义
 
-print('------------------------------')
-str = '123456789' 
-print(str)                 # 输出字符串
-print(str[0:-1])           # 输出第一个到倒数第二个的所有字符
-print(str[0])              # 输出字符串第一个字符
-print(str[2:5])            # 输出从第三个开始到第五个的字符
-print(str[2:])             # 输出从第三个开始后的所有字符
-print(str[1:5:2])          # 输出从第二个开始到第五个且每隔一个的字符（步长为2）
-print(str * 2)             # 输出字符串两次
-print(str + '你好')         # 连接字符串
-print(f'Hello {str}!')     # 嵌入字符串 since python3.6
+print('-------------Strings-----------------')
+s = '123456789' 
+print(s)                 # 输出字符串
+print(s[0:-1])           # 输出第一个到倒数第二个的所有字符
+print(s[0])              # 输出字符串第一个字符
+print(s[2:5])            # 输出从第三个开始到第五个的字符
+print(s[2:])             # 输出从第三个开始后的所有字符
+print(s[1:5:2])          # 输出从第二个开始到第五个且每隔一个的字符（步长为2）
+print(s * 2)             # 输出字符串两次
+print(s + '你好')         # 连接字符串
+print(f'Hello {s}!')     # 嵌入字符串 since python3.6
 
-print('------------------------------')
-str = ' rick cheN '
-print(f'{str} {str.title()} {str.upper()} {str.lower()}')
-print(str.strip())
-print(str.lstrip())
-print(str.rstrip())
+s = ' rick cheN '
+print(f'{s} {s.title()} {s.upper()} {s.lower()}')
+print(s.strip())
+print(s.lstrip())
+print(s.rstrip())
 
+print('--------------Lists----------------')
+bycycles = ['trek', 'cannondale', 'redline', 'specialized']
+print(bycycles)
+print(bycycles[0])
+print(bycycles[-1])
+
+motorcycles = ['honda', 'yamaha', 'suzuki']
+print(motorcycles)
+motorcycles.append('ducati')
+print(motorcycles)
+del motorcycles[-1]
+print(motorcycles)
+motorcycles.insert(0, 'ducati')
+print(motorcycles)
+print(motorcycles.pop())
+print(motorcycles)
+print(motorcycles.pop(0))
+print(motorcycles)
+motorcycles.remove('yamaha')
+print(motorcycles)
+
+cars = ['bmw', 'audi', 'toyota', 'subaru']
+cars.sort()
+print(cars)
+cars.sort(reverse=True)
+print(cars)
+
+cars = ['bmw', 'audi', 'toyota', 'subaru']
+print(sorted(cars))
+print(cars)
+print(sorted(cars, reverse=True))
+
+cars.reverse()
+print(cars)
+
+print(len(cars))
 
 # 打印命令行及输入参数
 print('------------------------------')
