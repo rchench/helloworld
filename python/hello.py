@@ -103,6 +103,12 @@ print(cars)
 
 print(len(cars))
 
+for car in cars:
+    print(car)
+
+for i in range(1,5):
+    print(i)
+
 # 打印命令行及输入参数
 print('------------------------------')
 import sys; print(sys.argv)
