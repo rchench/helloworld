@@ -4,7 +4,6 @@ https://www.runoob.com/python3/python3-tutorial.html
 
 https://docs.python.org/zh-cn/3/tutorial/index.html
 
-https://www.liaoxuefeng.com/wiki/1016959663602400
 
 https://www.youtube.com/watch?v=yMOU8_hhLL8
 

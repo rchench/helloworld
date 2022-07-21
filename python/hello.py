@@ -13,6 +13,9 @@
 第六注释
 """
 
+# Python之蝉
+import this
+
 print('-------------Hello-----------------')
 print('Hello, World!')
 
@@ -20,6 +23,7 @@ s = 'Hello, World!'
 
 # 换行输出
 print(s)
+from multiprocessing.connection import _ConnectionBase
 import sys; sys.stdout.write(s + '\n')
 
 # 不换行输出
@@ -35,7 +39,7 @@ print()
 print('hello\nrunoob')      # 使用反斜杠(\)+n转义特殊字符
 print(r'hello\nrunoob')     # 在字符串前面添加一个 r，表示原始字符串，不会发生转义
 
-print('-------------Strings-----------------')
+print('-------------Strings 字符串-----------------')
 s = '123456789' 
 print(s)                 # 输出字符串
 print(s[0:-1])           # 输出第一个到倒数第二个的所有字符
@@ -53,24 +57,34 @@ print(s.strip())
 print(s.lstrip())
 print(s.rstrip())
 
-print('-------------Num-----------------')
-print(10_000)     # 10000=10_000=100_00
-print(2**4)       # **乘方
+print('-------------Num 数字-----------------')
+'''
+int: + - * / ** 乘方 相除一直返回float
+>>> 4/2
+2.0
+float: 返回小数位数可能不确定
+>>> 0.2+0.1
+0.30000000000000004
+'''
 
-# 常量用大写，但实际上也是变量
-MAX=10
-print(MAX)
-MAX=100
-print(MAX)
+print(10_000)   # 10000=10_000=100_00 since python 3.6
 
-a,b,c=1,2,3
-print(f'{a} {b} {c}')
+a,b,c=1,2,3.5     # 多个数赋值
+print(f'{a} {b} {c}')   # 字符串里输出数值变量
 
-print('--------------Lists----------------')
+# Python没有常量，但通常用大写来代表变量
+MAX_Connections=1000
+
+print('--------------Lists 列表----------------')
 bycycles = ['trek', 'cannondale', 'redline', 'specialized']
 print(bycycles)
 print(bycycles[0])
 print(bycycles[-1])
+print(bycycles[1:3])
+print(bycycles[:3])
+print(bycycles[2:])
+print(bycycles[-3:])
+print(len(bycycles))
 
 motorcycles = ['honda', 'yamaha', 'suzuki']
 print(motorcycles)
@@ -92,22 +106,54 @@ cars.sort()
 print(cars)
 cars.sort(reverse=True)
 print(cars)
-
-cars = ['bmw', 'audi', 'toyota', 'subaru']
-print(sorted(cars))
-print(cars)
-print(sorted(cars, reverse=True))
-
 cars.reverse()
 print(cars)
 
-print(len(cars))
+cars = ['bmw', 'audi', 'toyota', 'subaru']
+print(sorted(cars)) # only returns result but does not change the list
+print(sorted(cars, reverse=True))
 
 for car in cars:
     print(car)
 
+my_foods = ['pizza', 'falafel', 'carrot cake']
+# duplicate a list
+friend_foods = my_foods[:]
+# don't use `friend_foods = my_foods`, that is not duplication but a reference to the same
+my_foods.append('cannoli')
+friend_foods.append('ice cream')
+print("My favorite foods are:")
+print(my_foods)
+print("My friend's favorite foods are:")
+print(friend_foods)
+
+# 数字列表
 for i in range(1,5):
     print(i)
+
+print(list(range(1,5)))
+
+for i in list(range(1,5)):
+    print(i)
+
+even_numbers = list(range(2, 11, 2))
+print(even_numbers)
+
+digits = list(range(0,10))
+print(min(digits))
+print(max(digits))
+print(sum(digits))
+
+squares = [value**2 for value in range(1, 11)]
+print(squares)
+
+print('--------------Dimensions 元组----------------')
+# 就是不能修改的列表
+dimensions = (200, 50)
+print(dimensions[0])
+print(dimensions[1])
+# single element must use ,
+dimensions = (200,)
 
 # 打印命令行及输入参数
 print('------------------------------')
