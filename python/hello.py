@@ -59,7 +59,7 @@ print(s.rstrip())
 
 print('-------------Num 数字-----------------')
 '''
-int: + - * / ** 乘方 相除一直返回float
+int: + - * / ** // % 乘方 相除一直返回float
 >>> 4/2
 2.0
 float: 返回小数位数可能不确定
@@ -147,24 +147,106 @@ print(sum(digits))
 squares = [value**2 for value in range(1, 11)]
 print(squares)
 
-print('--------------Dimensions 元组----------------')
+print('--------------Tuple 元组----------------')
 # 就是不能修改的列表
-dimensions = (200, 50)
-print(dimensions[0])
-print(dimensions[1])
+tuples = (200, 50)
+print(tuples[0])
+print(tuples[1])
 # single element must use ,
-dimensions = (200,)
+tuples = (200,)
+
+print('--------------If/While 条件语句----------------')
+car = "toyota"
+if car.lower() == 'bmw':
+    print("This is a BMW")
+elif car.lower() == 'toyota':
+    print("This is a TOYOTA")
+else:
+    print("This is not a car I know")
+
+# True False
+# == != > < >= <= in and or ()
+banned_users = ['andrew', 'carolina', 'david']
+user = 'marie'
+if user not in banned_users:
+    print(f"{user.title()}, you can post a response if you wish.")
+
+'''
+while True:
+    break
+    continue
+'''
+
+print('--------------Dictionary 字典----------------')
+alien_0 = {'color': 'green', 'points': 5}
+print(alien_0)
+print(alien_0['points'])
+del alien_0['points']
+print(alien_0)
+point_value = alien_0.get('points', 'No point value assigned.')	# use .get to avoid error that key does not exist
+print(point_value)
+
+mydict = {
+    'jen': 'python',
+    'sarah': 'c',
+    'edward': 'ruby',
+    'phil': 'python',
+    }
+
+for k, v in mydict.items():
+    print(f"Key: {k} Value: {v}")
+for k in mydict.keys():
+    print(f"Key: {k}")
+for v in mydict.values():
+    print(f"Value: {v}")
+
+for language in set(mydict.values()):	# set removes duplicated values
+    print(language.title())
+
+# Dict List
+alien_0 = {'color': 'green', 'points': 5}
+alien_1 = {'color': 'yellow', 'points': 10}
+alien_2 = {'color': 'red', 'points': 15}
+aliens = [alien_0, alien_1, alien_2]
+for alien in aliens:
+    print(alien)
+print(aliens)
+
+new_alien = {'color': 'black', 'points': 100}
+aliens.append(new_alien)
+print(aliens)
+
+# Dict in Dict
+users = {
+    'aeinstein': {
+        'first': 'albert',
+        'last': 'einstein',
+        'location': 'princeton',
+        },
+    'mcurie': {
+        'first': 'marie',
+        'last': 'curie',
+        'location': 'paris',
+        },
+}
+for username, user_info in users.items():
+    print(f"\nUsername: {username}")
+    full_name = f"{user_info['first']} {user_info['last']}"
+    location = user_info['location']
+    print(f"\tFull name: {full_name.title()}")
+    print(f"\tLocation: {location.title()}")
+
+print('--------------Input----------------')
+name = input("Tell me your name:")
+print(f"Hello {name}")
+age = input("Tell me your age:")
+age = int(age)
+if age >= 18:
+    print("You are good to go")
+else:
+    print("You can not go")
+
 
 # 打印命令行及输入参数
-print('------------------------------')
+print('-------------Cli & Args-----------------')
 import sys; print(sys.argv)
-
-if True:
-    print ("True")
-else:
-    print ("False")
-
- 
- 
-
-#input("\n\n按下 enter 键后退出。")
