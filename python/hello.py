@@ -264,6 +264,24 @@ def hello_func():
     show_completed_models(completed_models)
     print(unprinted_designs)
 
+    # import a module, need module name when calling the functions
+    import pizza
+    pizza.make_pizza(12, 'pepperoni')
+    pizza.make_pizza(16, 'mushrooms', 'green peppers', 'extra cheese')
+
+    # import functions from a module, no module name need when calling the functions
+    # from module import func1, func2, ...
+    # from module import *
+    from pizza import make_pizza
+    make_pizza(16, 'pepperoni')
+    make_pizza(12, 'mushrooms', 'green peppers', 'extra cheese')
+
+    # from module import func as fn 指定func别名
+    # import module as mn 指定module别名
+
+    user_profile = build_profile('albert', 'einstein', location='princeton', field='physics')
+    print(user_profile)
+
 def print_models(unprinted_designs, completed_models):
     while unprinted_designs:
         current_design = unprinted_designs.pop()
@@ -274,6 +292,13 @@ def show_completed_models(completed_models):
     print("\nThe following models have been printed:")
     for completed_model in completed_models:
         print(completed_model)
+
+def build_profile(first, last, **user_info):
+    # **user_info: kv pairs
+    user_info['first_name'] = first
+    user_info['last_name'] = last
+    return user_info
+
 
 # 打印命令行及输入参数
 print('-------------Cli & Args-----------------')
