@@ -314,6 +314,8 @@ def hello_class():
 
     your_dog.sit()
 
+    from car import Car
+
     my_car = Car('volkswagen', 'passat', 2017)
     print(my_car.get_descriptive_name())
 
@@ -326,12 +328,15 @@ def hello_class():
     my_car.read_odometer()
     my_car.fill_gas_tank(15)
 
-    my_tesla = ElectricCar('tesla', 'model s', 2019)
+    from electric_car import ElectricCar as EC
+
+    my_tesla = EC('tesla', 'model s', 2019)
     print(my_tesla.get_descriptive_name())
     my_tesla.read_odometer()
     my_tesla.launch_auto_pilot()
     my_tesla.battery.describe_battery()
     my_tesla.fill_gas_tank(15)
+    my_tesla.battery.get_range()
 
 class Dog:
     def __init__(self, name, age):
@@ -344,58 +349,6 @@ class Dog:
     def roll_over(self):
         print(f'{self.name} rolled over!')
 
-class Car:
-    def __init__(self, make, model, year):
-        self.make = make
-        self.model = model
-        self.year = year
-        self.odometer_reading = 0
-
-    def get_descriptive_name(self):
-        long_name = f"{self.year} {self.make} {self.model}"
-        return long_name.title()
-
-    def read_odometer(self):
-        print(f"This car has {self.odometer_reading} miles on it.")
-
-    def update_odometer(self, mileage):
-        if mileage >= self.odometer_reading:
-            self.odometer_reading = mileage
-        else:
-            print("You can't roll back an odometer!")
-
-    def increment_odometer(self, miles):
-        self.odometer_reading += miles
-
-    def fill_gas_tank(self, gallon):
-        print(f'{gallon} gallon gas filled in the gas tank.')
-
-class Battery:
-    def __init__(self, battery_size=75):
-        self.battery_size = battery_size
-
-    def describe_battery(self):
-        print(f"This car has a {self.battery_size}-kWh battery.")
-
-# 继承 必须放在Car Class后面
-class ElectricCar(Car):
-    def __init__(self, make, model, year):
-        super().__init__(make, model, year)
-        # 添加新属性
-        self.auto_pilot = True
-        # 新属性来自另一s个子类
-        self.battery = Battery()
-
-    # 添加新方法
-    def launch_auto_pilot(self):
-        if self.auto_pilot:
-            print('Auto pilot launched. Please put your hands behind the wheel.')
-        else:
-            print('Your Telsa does not support auto pilot.')
-
-    # 重写方法
-    def fill_gas_tank(self, gallon):
-        print("This car doesn't have a gas tank!")
 
 # 打印命令行及输入参数
 import sys; print(sys.argv)
