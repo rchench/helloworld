@@ -11,6 +11,7 @@
 """
 
 # Python之蝉
+from re import L
 import this
 
 def hello(name='world'):
@@ -252,6 +253,7 @@ def hello_input():
         print("You can not go")
 
 def hello_func():
+    print('--------------Function 函数----------------')
     unprinted_designs = ['phone case', 'robot pendant', 'dodecahedron']
     completed_models = []
     print_models(unprinted_designs, completed_models)
@@ -299,15 +301,114 @@ def build_profile(first, last, **user_info):
     user_info['last_name'] = last
     return user_info
 
+def hello_class():
+    print('--------------Class 类----------------')
+    my_dog = Dog('Mylee', 0.5)
+    your_dog = Dog('Coco', 10)
+
+    print(f"my dog's name is {my_dog.name}.")
+    print(f"my dog is {my_dog.age} years old.")
+
+    my_dog.sit()
+    my_dog.roll_over()
+
+    your_dog.sit()
+
+    my_car = Car('volkswagen', 'passat', 2017)
+    print(my_car.get_descriptive_name())
+
+    my_car.odometer_reading = 60
+    print(f'{my_car.odometer_reading}')
+
+    my_car.update_odometer(23_500)
+    my_car.read_odometer()
+    my_car.increment_odometer(100)
+    my_car.read_odometer()
+    my_car.fill_gas_tank(15)
+
+    my_tesla = ElectricCar('tesla', 'model s', 2019)
+    print(my_tesla.get_descriptive_name())
+    my_tesla.read_odometer()
+    my_tesla.launch_auto_pilot()
+    my_tesla.battery.describe_battery()
+    my_tesla.fill_gas_tank(15)
+
+class Dog:
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+
+    def sit(self):
+        print(f'{self.name} is now sitting.')
+
+    def roll_over(self):
+        print(f'{self.name} rolled over!')
+
+class Car:
+    def __init__(self, make, model, year):
+        self.make = make
+        self.model = model
+        self.year = year
+        self.odometer_reading = 0
+
+    def get_descriptive_name(self):
+        long_name = f"{self.year} {self.make} {self.model}"
+        return long_name.title()
+
+    def read_odometer(self):
+        print(f"This car has {self.odometer_reading} miles on it.")
+
+    def update_odometer(self, mileage):
+        if mileage >= self.odometer_reading:
+            self.odometer_reading = mileage
+        else:
+            print("You can't roll back an odometer!")
+
+    def increment_odometer(self, miles):
+        self.odometer_reading += miles
+
+    def fill_gas_tank(self, gallon):
+        print(f'{gallon} gallon gas filled in the gas tank.')
+
+class Battery:
+    def __init__(self, battery_size=75):
+        self.battery_size = battery_size
+
+    def describe_battery(self):
+        print(f"This car has a {self.battery_size}-kWh battery.")
+
+# 继承 必须放在Car Class后面
+class ElectricCar(Car):
+    def __init__(self, make, model, year):
+        super().__init__(make, model, year)
+        # 添加新属性
+        self.auto_pilot = True
+        # 新属性来自另一s个子类
+        self.battery = Battery()
+
+    # 添加新方法
+    def launch_auto_pilot(self):
+        if self.auto_pilot:
+            print('Auto pilot launched. Please put your hands behind the wheel.')
+        else:
+            print('Your Telsa does not support auto pilot.')
+
+    # 重写方法
+    def fill_gas_tank(self, gallon):
+        print("This car doesn't have a gas tank!")
 
 # 打印命令行及输入参数
-print('-------------Cli & Args-----------------')
 import sys; print(sys.argv)
 
-s = ''
+if len(sys.argv) > 1:
+    s = sys.argv[1]
+    l = False
+else:
+    s = input('\ngive me an input (enter "quit" or press Enter to quit):')
+    l = True
+
 while True:
-    s = input('give me an input ("quit" to quit):')
-    if s.lower() == 'quit':
+    if s.lower() == 'quit' or s == '':
         break
     elif s == 'helloworld':
         hello()
@@ -318,3 +419,8 @@ while True:
         globals()[f'hello_{s}']()
     else:
         print(f'hello_{s} not define. try something else:')
+
+    if l:
+        s = input('\ngive me an input (enter "quit" or press Enter to quit):')
+    else:
+        break
