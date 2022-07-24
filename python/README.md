@@ -9,15 +9,15 @@ Some videos:
 
 ```
 # interactive mode to run multiple hello
-python3 hello.py
+python3 hello_world.py
 # run only one hello
-python3 hello.py num
+python3 hello_world.py num
 
 # run python in a given string
 python3 -c 'print("hello world")'
 
 # inspect interactively after running script
-python3 -i hello.py
+python3 -i hello_world.py
 
 # install pygame
 python3 -m pip install -U pygame --user
@@ -26,11 +26,11 @@ python3 -m pygame.examples.aliens
 # install matplotlib
 python3 -m pip install -U matplotlib
 python3 -c 'import matplotlib; print(matplotlib.__version__, matplotlib.__file__)'
-python3 mpl.py
+python3 hello_mpl.py
 
 # install plotly
 python3 -m pip install plotly
-python3 ply.py
+python3 hello_plotly.py
 
 # install django
 python3 -m pip install Django
