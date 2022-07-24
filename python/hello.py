@@ -349,6 +349,62 @@ class Dog:
     def roll_over(self):
         print(f'{self.name} rolled over!')
 
+def hello_file():
+    print('--------------File & Exception 文件和例外----------------')
+    filename = 'pi_digits.txt'
+
+    with open(filename) as file_object:
+        contents = file_object.read()
+    print(contents.rstrip())
+
+    with open(filename) as file_object:
+        for line in file_object:
+            print(line.rstrip())
+
+    with open(filename) as file_object:
+        lines = file_object.readlines()
+    for line in lines:
+        print(line.rstrip())
+    pi_string = ''
+    for line in lines:
+        pi_string += line.strip()
+    print(pi_string)
+    print(len(pi_string))
+
+    filename = 'programming.txt'
+    with open(filename, 'w') as file_object:    # r, w, a, r+
+        file_object.write('I love programming.\n')
+        file_object.write("I love creating new games.\n")
+
+    # 例外处理
+    try:
+        print(5/0)
+    except ZeroDivisionError:
+        print("You can't divide by zero!")
+
+    filename = 'alice.txt'
+    try:
+        with open(filename, encoding='utf-8') as f:
+            contents = f.read()
+    except FileNotFoundError:
+        # use pass to say nothing
+        print(f"Sorry, the file {filename} does not exist.")
+    else:
+        words = contents.split()
+        num_words = len(words)
+        print(f"The file {filename} has about {num_words} words.")
+
+    # 写入json
+    import json
+    numbers = [2, 3, 5, 7, 11, 13]
+    filename = 'numbers.json'
+    with open(filename, 'w') as f:
+        json.dump(numbers, f)
+
+    # 读取json
+    with open(filename) as f:
+        numbers = json.load(f)
+    print(numbers)
 
 # 打印命令行及输入参数
 import sys; print(sys.argv)
