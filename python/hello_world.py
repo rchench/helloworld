@@ -406,6 +406,54 @@ def hello_file():
         numbers = json.load(f)
     print(numbers)
 
+def hello_csv():
+    import csv
+    filename = 'data/sitka_weather_07-2018_simple.csv'
+    with open(filename) as f:
+        reader = csv.reader(f)
+        header_row = next(reader)
+        print(header_row)
+
+        for index, column_header in enumerate(header_row):
+            print(index, column_header)
+
+        highs = []
+        for row in reader:
+            high = int(row[5])
+            highs.append(high)
+        print(highs)
+    
+
+def hello_json():
+    import json
+
+    filename = 'data/eq_data_1_day_m1.json'
+    with open(filename) as f:
+        all_eq_data = json.load(f)
+
+    readable_file = 'data/readable_eq_data.json'
+    with open(readable_file, 'w') as f:
+        json.dump(all_eq_data, f, indent=4)
+
+    all_eq_dicts = all_eq_data['features']
+    print(len(all_eq_dicts))
+
+    mags = []
+    for eq_dict in all_eq_dicts:
+        mag = eq_dict['properties']['mag']
+        mags.append(mag)
+
+    print(mags[:10])
+
+def hello_api():
+    import requests
+    url = 'https://api.github.com/search/repositories?q=language:python&'
+    headers = {'Accept': 'application/vnd.github.v3+json'}
+    r = requests.get(url, headers=headers)
+    print(f"Status code: {r.status_code}")
+    response_dict = r.json()
+    print(response_dict.keys())
+
 # 打印命令行及输入参数
 import sys; print(sys.argv)
 
